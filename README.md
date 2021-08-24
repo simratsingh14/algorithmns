@@ -2,5 +2,5 @@
 Its for practice algorithmns
 
 # Problem Solved:
-- 746. Min Cost Climbing Stairs
+- 746 Min Cost Climbing Stairs
 
