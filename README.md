@@ -2,5 +2,6 @@
 Its for practice algorithmns
 
 # Problem Solved:
-- 746 Min Cost Climbing Stairs
+- (LC)746 Min Cost Climbing Stairs
+- (FCC)Can sum be possible
 
