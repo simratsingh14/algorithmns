@@ -1,11 +1,10 @@
 def howsum(target,arr):
     ans = []
     final = []
-    memo = {}
     def helper(target,ans):
         if target == 0:
             final.append(ans)
-            return 
+            return ans
         elif target < min(arr):
             return
         else:
