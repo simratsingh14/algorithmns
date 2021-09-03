@@ -1,6 +1,6 @@
 def howsum(target,arr):
     ans = []
-    final = []
+    final = [] 
     def helper(target,ans):
         if target == 0:
             final.append(ans)
@@ -11,7 +11,7 @@ def howsum(target,arr):
             # lar = [x for x in arr if x <= target]
             lar = list(filter(lambda x:x<=target,arr))
             print(lar,target,ans)
-            for i in lar:
+            for i in sorted(lar,reverse=True):
                 helper(target-i,ans+[i])
             
                     
