@@ -93,7 +93,7 @@ class Sudoku:
         list_reference = [i for i in range(1,10)] 
         number_taken = [i for i in self.__traverse_grid(x,y) if i != '.']
         number_taken += [i for i in self.__traverse_row(x,y) if i != '.']
-        number_taken += [i for i in self.___traverse_column(x,y) if i != '.']
+        number_taken += [i for i in self.__traverse_column(x,y) if i != '.']
         
         for i in list(set(list_reference).difference(number_taken)):
             yield i 
@@ -111,7 +111,6 @@ class Sudoku:
         if s.isSolved():
             print('\n\n')
             self.display()
-            input('')
         return
 
 
