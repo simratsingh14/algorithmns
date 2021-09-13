@@ -20,6 +20,23 @@ def howsum(target,arr):
         return final
     else:
         return -1
-target = 8
-arr = [2,3,5]
-print(howsum(target,arr))
+target = 32
+arr = [1,2,4]
+# print(howsum(target,arr))
+def howSumTabulation(target,arr):
+    dp = [None]*(target+1)
+    dp[0] = []
+    for i in range(len(dp)):
+        if isinstance(dp[i],list):
+            for j in range(len(arr)):
+                if arr[j] + i < len(dp):
+                    dp[arr[j] + i] = dp[i] + [arr[j]]
+    # print(dp)
+    return dp[-1]
+
+print(howSumTabulation(target,arr))
+'''
+Tabulation Methold
+Time Complexity O(m2n)
+Space Complexity O(m2)
+'''
