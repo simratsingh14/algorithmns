@@ -54,15 +54,27 @@ def canSummemo(numbers,targetSum):
     return canSum_helper(targetSum)
 
 
-k = canSummemo([7,14],300)
-print(k)
+# k = canSummemo([7,14],300)
+# print(k)
         
-                
+# Tabulation Methold
+'''
+Time complexity is O(nm)
+Space complexity is O(m)
+'''
+
+def canSum_tabulation(numbers,target):
+    dp = [False]*(target+1)
+    dp[0] = True
+    for i in range(len(dp)):
+        if dp[i]:
+            for j in range(len(numbers)):
+                if i + numbers[j] < len(dp):
+                    dp[i+numbers[j]] = True
+    return dp[-1]
 
 
-
-            
-
+print(canSum_tabulation([2,3,5],8))
 
 
 
