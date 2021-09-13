@@ -15,7 +15,7 @@ def canConstruct(target,wordBank):
         
         for i in lar:
             if i in memo.keys():
-                ans = memo[i]          # Added for memoization   
+                ans = memo[i]          # Added from memoization   
             else:
                 ans = helper_function(target[len(i):])
                 memo[i] = ans          # Added for memoization
@@ -33,11 +33,31 @@ Space O(targetsize^2)
 Memoized Solution
 Time O(length(arr)*targetsize*targetsize)
 Space O(targetsize^2)
+
+Tabulation Solution
+Time O(length(arr)*targetsize*targetsize)
+Space O(targetsize^2)
 '''
 
-target = 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeesf'
-wordBank = ['e'*1,'e'*2,'e'*3,'e'*4,'e'*5,'e'*6]
-print(canConstruct(target,wordBank))
+
+def canConstructTab(target,wordBank):
+    dp = [False]*(len(target)+1)
+    dp[0] = True
+    for i in range(len(dp)):
+        if dp[i]:
+            for j in range(len(wordBank)):
+                if i+len(wordBank[j]) <= len(target) and wordBank[j].startswith(target[i]):
+                    if target[:i] + wordBank[j] == target[:i+len(wordBank[j])]:
+                        dp[i+len(wordBank[j])] = True
+                        
+    print(dp)
+    return dp[-1]
+
+
+
+target = 'enterapotentpot'
+wordBank = ['a','p','ent','enter','ot','o','t']
+print(canConstructTab(target,wordBank))
 
 
 
