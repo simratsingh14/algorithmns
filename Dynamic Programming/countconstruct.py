@@ -25,9 +25,26 @@ Space O(targetsize^2)
 Memoized Solution
 Time O(length(arr)*targetsize*targetsize)
 Space O(targetsize^2)
+
+Tabulated Solution
+Time O(length(arr)*targetsize*targetsize)
+Space O(targetsize^2)
 '''  
 
-target = 'enterapotentpot'
-wordBank = ['a','p','ent','enter','ot','o','t']
-print(canConstruct(target,wordBank))
-print(canConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',['e'*1,'e'*2,'e'*3,'e'*4,'e'*5,'e'*6]))
+def countConstuctTabulation(target,wordBank):
+    dp = [1] + [0]*len(target)
+    for i in range(len(dp)):
+        if dp[i] > 0:
+            for j in range(len(wordBank)):
+                if i+len(wordBank[j]) <= len(target) and wordBank[j].startswith(target[i]):
+                    if target[:i] + wordBank[j] == target[:i+len(wordBank[j])]:
+                        dp[i+len(wordBank[j])] += dp[i]
+    # print(dp)
+    return dp[len(target)]
+                    
+
+
+
+print(countConstuctTabulation('purple',['purp','p','ur','le','purpl']))
+print(countConstuctTabulation('enterapotentpot',['a','p','ent','enter','ot','o','t']))
+print(countConstuctTabulation('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',['e'*1,'e'*2,'e'*3,'e'*4,'e'*5,'e'*6]))
