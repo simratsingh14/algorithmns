@@ -1,5 +1,5 @@
-# algorithmns
-Its for practice algorithmns
+# algorithm
+Its for practice algorithm
 
 # Problem Solved:
 - (LC)746 Min Cost Climbing Stairs
