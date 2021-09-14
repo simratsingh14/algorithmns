@@ -9,5 +9,8 @@ Its for practice algorithm
 - (FCC) Can construct string from wordBank
 - (FCC) CountConstruct how many ways to construct
 - (FCC) All the construct ways 
-- 
+
+
+# Projects
+- Sudoku:- Checks and solves the Sudoku problem using backtracking
 
