@@ -49,3 +49,21 @@ print(knapsackRecursiveMemoization(0,maximumWeight))
 end = time.time()
 print(f"time taken by recursive+memoization function {end-start}")  
 
+def knapsackTabulation(n,maximumWeight):
+    dp = [[0]*(maximumWeight+1) for _ in range(n+1)]
+    for n in range(1,len(dp)):
+        for w in range(1,len(dp[0])):
+            if w < weight[n-1]:
+                dp[n][w] = dp[n-1][w]
+            else:
+                dp[n][w] = max(dp[n-1][w],val[n-1]+dp[n-1][w-weight[n-1]]) 
+    # print(dp)
+    return dp[n][w]
+            
+
+
+
+start = time.time()
+print(knapsackTabulation(len(weight),maximumWeight))
+end = time.time()
+print(f"time taken by tabulatation function {end-start}")
