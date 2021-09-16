@@ -9,6 +9,7 @@ Its for practice algorithm
 - (FCC) Can construct string from wordBank
 - (FCC) CountConstruct how many ways to construct
 - (FCC) All the construct ways 
+- (AV) Knapsack problem
 
 
 # Projects
