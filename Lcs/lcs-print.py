@@ -3,8 +3,8 @@ Given two sequences, print the longest subsequence present in both of them.
 Example:
 LCS for input Sequences “ABCDGH” and “AEDFHR” is “ADH” of length 3. 
 '''
-x = 'ABCDGH'
-y = 'AEDFHR'
+x = 'acbcf'
+y = 'abcdaf'
 def lcsPrint(x,y):
     m,n = len(x),len(y)
     dp = [[''] + [None]*(n) for i in range(m+1)]
