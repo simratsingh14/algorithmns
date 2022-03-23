@@ -1,6 +1,6 @@
 class Solution:
     def updateMatrix(self, mat: List[List[int]]) -> List[List[int]]:
-        queue = []
+        queue = deque()
         for i in range(len(mat)):
             for j in range(len(mat[0])):
                 if not mat[i][j]:
@@ -12,20 +12,16 @@ class Solution:
         while queue:
             size = len(queue)
             for _ in range(size):
-                i,j = queue.pop(0)
-                if (i,j) in visited:
-                    continue
-                visited.add((i,j))
-                mat[i][j] = level
+                i,j = queue.popleft()
                 for di in dirs:
                     x = i + di[0] 
                     y = j + di[1]
-                    if 0 <= x < len(mat) and 0 <= y < len(mat[0]) and mat[x][y] == 1:
+                    if 0 <= x < len(mat) and 0 <= y < len(mat[0]) and (x,y) not in visited and mat[x][y] == 1:
+                        visited.add((x,y))
+                        mat[x][y] = level+1
                         queue.append((x,y))
                 
             
             level+=1
         return mat
                     
-        
-        
