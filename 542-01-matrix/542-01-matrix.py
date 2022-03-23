@@ -13,12 +13,14 @@ class Solution:
             size = len(queue)
             for _ in range(size):
                 i,j = queue.pop(0)
+                if (i,j) in visited:
+                    continue
+                visited.add((i,j))
+                mat[i][j] = level
                 for di in dirs:
                     x = i + di[0] 
                     y = j + di[1]
-                    if 0 <= x < len(mat) and 0 <= y < len(mat[0]) and (x,y) not in visited and mat[x][y] == 1:
-                        visited.add((x,y))
-                        mat[x][y] = level+1
+                    if 0 <= x < len(mat) and 0 <= y < len(mat[0]) and mat[x][y] == 1:
                         queue.append((x,y))
                 
             
