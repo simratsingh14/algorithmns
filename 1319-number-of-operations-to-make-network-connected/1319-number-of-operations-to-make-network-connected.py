@@ -29,9 +29,10 @@ class Solution:
                 self.parent[pu] = pv
         #print(redundant)
         #print(self.parent)
+        group = 0
         for i in range(len(self.parent)):
-            self.parent[i] = findParent(i)
-        group = len(set(self.parent))  
+            if self.parent[i] == i:
+                group+=1
         if group - 1 <= redundant:
             return group -1
                 
