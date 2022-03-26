@@ -34,9 +34,6 @@ class Solution:
         group = len(set(self.parent))  
         if group - 1 <= redundant:
             return group -1
-        else:
-            return -1
-            
                 
             
         
