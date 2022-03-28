@@ -8,6 +8,8 @@ class Solution:
         dirs = [[-1,0],[1,0],[0,-1],[0,1]]
         while heap:
             d,i,j = heapq.heappop(heap)
+            if i == len(distance)-1 and j == len(distance[0])-1:
+                return d
             for di in dirs:
                 x = i + di[0]
                 y = j + di[1]
@@ -17,7 +19,5 @@ class Solution:
                         distance[x][y] = weight
                         heapq.heappush(heap,(weight,x,y))
         #print(distance)
-        return distance[-1][-1]
-            
         
         
