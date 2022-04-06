@@ -3,30 +3,29 @@ class Solution:
         """
         Do not return anything, modify board in-place instead.
         """
-        q = deque()
-        d = defaultdict(int)
-        for i in range(len(board)):
-            for j in range(len(board[0])):
-                if board[i][j]:
-                    q.append((i,j))
-        #print(q)
         dirs = [(-1,-1),(-1,0),(-1,1),(0,1),(1,1),(1,0),(1,-1),(0,-1)]
-        while q:
-            i,j = q.popleft()
-            for di in dirs:
-                x = i + di[0]
-                y = j + di[1]
-                if 0 <= x < len(board) and 0 <= y < len(board[0]):
-                    d[(x,y)]+=1
-        #print(d)
         for i in range(len(board)):
             for j in range(len(board[0])):
+                count = 0
+                for d in dirs:
+                    x = i + d[0]
+                    y = j + d[1]
+                    if 0 <= x < len(board) and 0 <= y < len(board[0]) and (board[x][y] == 2 or board[x][y] == 1):
+                        count+=1
                 if board[i][j]:
-                    if not(d[(i,j)] == 2 or d[(i,j)] == 3):
-                        board[i][j] = 0
+                    if count < 2 or count > 3:
+                        board[i][j] = 2
                 else:
-                    if d[(i,j)] == 3:
-                        board[i][j] = 1
-            
+                    if count == 3:
+                        board[i][j] = 3
+        
+        # 2 -> 1 to 0 
+        
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                if board[i][j] == 3:
+                    board[i][j] = 1
+                elif board[i][j] == 2:
+                    board[i][j] = 0
         
         
