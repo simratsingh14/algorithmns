@@ -24,13 +24,12 @@ class Solution:
         for i,val in enumerate(s):
             groups[findParent(i)]+=val
         for idx,val in groups.items():
-            groups[idx].sort()    
+            groups[idx].sort(reverse = True)    
         #print(groups)
         
         ans = []
         for i in self.parent:
-            ans.append(groups[i][0])
-            groups[i].pop(0)
+            ans.append(groups[i].pop())
         return ''.join(ans)
             
             
