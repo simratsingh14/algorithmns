@@ -8,9 +8,9 @@ class Solution:
             for i in range(len(str1)):
                 if str1[i] != str2[i]:
                     count+=1
-            if count <= 2:
-                return True
-            return False
+                if count > 2:
+                    return False
+            return True
         
         pairs = []
         for i in range(len(strs)):
