@@ -2,15 +2,15 @@
 from functools import lru_cache
 class Solution:
     def cutRod(self, price, n):
-        @lru_cache(None)
-        def recursive(inx,length):
-            if inx == n or length == 0:
-                return 0
-            if length >= inx+1:
-                return max(price[inx]+recursive(inx,length-inx-1),recursive(inx+1,length))
-            else:
-                return recursive(inx+1,length)
-        return recursive(0,n)
+        dp = [[0]*(n+1) for i in range(n+1)]
+        for i in range(1,len(dp)):
+            for j in range(1,len(dp[0])):
+                if j >= i:
+                    dp[i][j] = max(dp[i-1][j],price[i-1]+dp[i][j-i])
+                else:
+                    dp[i][j] = dp[i-1][j]
+        return dp[-1][-1]
+                
 
 #{ 
 #  Driver Code Starts
