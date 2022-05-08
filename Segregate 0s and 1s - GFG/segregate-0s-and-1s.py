@@ -2,15 +2,18 @@
 
 class Solution:
     def segregate0and1(self, arr, n):
-        left,right = 0,n-1
-        while left < right:
-            if arr[left]:
-                arr[left],arr[right] = arr[right],arr[left]
-                right-=1
+        p1,p2 = -1,0
+        while p2 < n:
+            if arr[p2]:
+                p2+=1
             else:
-                left+=1
+                p1+=1
+                arr[p1],arr[p2] = arr[p2],arr[p1]
+                p2+=1
         return arr
-
+    
+    
+    
 #{ 
 #  Driver Code Starts
 #Initial Template for Python 3
