@@ -1,5 +1,7 @@
 class Solution:
     def longestPalindromeSubseq(self, s: str) -> int:
+        if s == s[::-1]:
+            return len(s)
         
         def LCS(s,t):
             n,m = len(s),len(t)
