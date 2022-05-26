@@ -1,4 +1,8 @@
 class Solution:
     def hammingWeight(self, n: int) -> int:
-         return bin(n)[2:].count('1')
-        
+        count = 0
+        while n!=0:
+            mask = n & (-n)
+            n = n - mask
+            count+=1
+        return count
