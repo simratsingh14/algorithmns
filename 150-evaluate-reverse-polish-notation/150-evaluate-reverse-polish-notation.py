@@ -4,18 +4,18 @@ class Solution:
         for i in tokens:
             #print(stack)
             if i in ['+','-','*','/']:
-                num2 = int(stack.pop())
-                num1 = int(stack.pop())
+                num2 = stack.pop()
+                num1 = stack.pop()
                 if i == '+':
-                    stack.append(str(num1+num2))
+                    stack.append(num1+num2)
                 elif i == '-':
-                    stack.append(str(num1-num2))
+                    stack.append(num1-num2)
                 elif i == '*':
-                    stack.append(str(num1*num2))
+                    stack.append(num1*num2)
                 elif i == '/':
-                    stack.append(str(int(num1/num2)))
+                    stack.append(int(num1/num2))
             else:
-                stack.append(i)
-        return int(stack[0])
+                stack.append(int(i))
+        return stack[0]
                 
         
