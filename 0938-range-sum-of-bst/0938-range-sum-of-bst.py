@@ -13,8 +13,13 @@ class Solution:
                 return 
             if low <= node.val <= high:
                 self.ans+=node.val
-            inorder(node.left)
-            inorder(node.right)
+            if node.val > high:
+                inorder(node.left)
+            elif node.val < low:
+                inorder(node.right)
+            else: 
+                inorder(node.left)
+                inorder(node.right)
         inorder(root)
         return self.ans
         
