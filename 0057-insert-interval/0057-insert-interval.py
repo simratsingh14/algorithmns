@@ -11,5 +11,6 @@ class Solution:
                 I[0] = min(I[0], x)
                 I[1] = max(I[1], y)
         print(res)         
-        return res + [I] + intervals[i+1:]
+        # return res + [I] + intervals[i+1:]
+        return res
         
